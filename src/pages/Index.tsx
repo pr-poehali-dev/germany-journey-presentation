@@ -722,7 +722,7 @@ const HeritageSlide = () => (
             </div>
             <p style={{ color: "#f0e6c8", fontSize: "11px", fontWeight: 500, lineHeight: 1.2 }}>{item.name}</p>
             <p style={{ color: "var(--gold)", fontSize: "9px", marginTop: "2px" }}>{item.city}</p>
-            <p style={{ color: "#6a5a3a", fontSize: "9px", marginTop: "3px", lineHeight: 1.35 }}>{item.desc}</p>
+            <p style={{ color: "#b0a080", fontSize: "10px", marginTop: "3px", lineHeight: 1.45 }}>{item.desc}</p>
           </div>
         ))}
       </div>
