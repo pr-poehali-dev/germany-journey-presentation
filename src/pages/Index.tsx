@@ -28,6 +28,9 @@ const NATURE_IMG = "https://cdn.poehali.dev/projects/44436a32-4b5b-4d12-99a0-91b
 const CASTLE_IMG = "https://cdn.poehali.dev/projects/44436a32-4b5b-4d12-99a0-91b96511c899/files/4da1df4f-fdea-47b6-b714-e6aa12df1a6e.jpg";
 const COLOGNE_IMG = "https://cdn.poehali.dev/projects/44436a32-4b5b-4d12-99a0-91b96511c899/files/a9224ea3-4a74-4b48-95d9-1a5b58de83f4.jpg";
 const OKTOBERFEST_IMG = "https://cdn.poehali.dev/projects/44436a32-4b5b-4d12-99a0-91b96511c899/files/fa111a17-9267-48ba-a7e8-f9f3cc0b6982.jpg";
+const REICHSTAG_IMG = "https://cdn.poehali.dev/projects/44436a32-4b5b-4d12-99a0-91b96511c899/files/470a0cc8-ac48-4b9e-b60d-e916a7c407a3.jpg";
+const SANSSOUCI_IMG = "https://cdn.poehali.dev/projects/44436a32-4b5b-4d12-99a0-91b96511c899/files/f49817d7-fa6d-4582-ad99-6516a19be7a0.jpg";
+const RHINE_IMG = "https://cdn.poehali.dev/projects/44436a32-4b5b-4d12-99a0-91b96511c899/files/40b0c49a-3c16-4968-b72c-04c68a41ef92.jpg";
 
 const GoldDivider = () => (
   <div className="flex items-center gap-3 my-4">
@@ -416,73 +419,90 @@ const FactsSlide = () => (
         color: "#f0e6c8",
       }}
     >
-      Германия в цифрах
+      Факты о Германии
     </h2>
     <div className="gold-line w-40 mt-2 mb-4" />
 
-    <div className="flex flex-col lg:flex-row gap-4 flex-1">
-      {/* Фото */}
-      <div
-        className="relative overflow-hidden animate-fade-in opacity-0 lg:w-72"
-        style={{ border: "1px solid var(--gold-dark)", minHeight: "200px", flexShrink: 0, animationFillMode: "forwards" }}
-      >
-        <img src={OKTOBERFEST_IMG} alt="Oktoberfest" className="w-full h-full object-cover" />
-        <div className="absolute inset-0" style={{ background: "linear-gradient(to top, rgba(13,17,23,0.85) 0%, transparent 50%)" }} />
-        <div className="absolute bottom-3 left-3 right-3">
-          <p style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "18px", color: "#f0e6c8", fontStyle: "italic" }}>
-            Oktoberfest
-          </p>
-          <p style={{ color: "var(--gold)", fontSize: "10px" }}>Мюнхен · с 1810 года</p>
-        </div>
-      </div>
-
-      {/* Цифры */}
-      <div className="grid grid-cols-2 md:grid-cols-3 gap-3 flex-1 content-start">
-        {[
-          { num: "84,4 млн", label: "жителей", sub: "4-я по населению в Европе", emoji: "👥" },
-          { num: "1300+", label: "сортов пива", sub: "Родина Oktoberfest с 1810 г.", emoji: "🍺" },
-          { num: "25 000+", label: "замков", sub: "Больше, чем в любой стране мира", emoji: "🏰" },
-          { num: "16", label: "федеральных земель", sub: "Федеративная республика", emoji: "🗺️" },
-          { num: "4-я", label: "экономика мира", sub: "ВВП — 4,1 трлн $ (2024)", emoji: "📈" },
-          { num: "31", label: "объект ЮНЕСКО", sub: "Всемирное культурное наследие", emoji: "🏛️" },
-          { num: "130+", label: "нобелевских лауреатов", sub: "Больше, чем у любой другой страны", emoji: "🏆" },
-          { num: "3500", label: "сортов хлеба", sub: "Хлебная столица мира", emoji: "🍞" },
-          { num: "1 млрд+", label: "автомобилей произведено", sub: "Родина BMW, Mercedes, Porsche, VW", emoji: "🚗" },
-        ].map((fact, i) => (
+    <div className="flex gap-4 flex-1">
+      {/* Левая колонка — фото + факты */}
+      <div className="flex flex-col gap-3 flex-1">
+        {/* 2 фото рядом */}
+        <div className="grid grid-cols-2 gap-3" style={{ height: "160px" }}>
           <div
-            key={fact.label}
-            className="animate-scale-in opacity-0"
+            className="relative overflow-hidden animate-fade-in opacity-0"
+            style={{ border: "1px solid var(--gold-dark)", animationFillMode: "forwards" }}
+          >
+            <img src={OKTOBERFEST_IMG} alt="Oktoberfest" className="w-full h-full object-cover" />
+            <div className="absolute inset-0" style={{ background: "linear-gradient(to top, rgba(13,17,23,0.85) 0%, transparent 45%)" }} />
+            <div className="absolute bottom-2 left-2 right-2">
+              <p style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "13px", color: "#f0e6c8", fontStyle: "italic" }}>Oktoberfest</p>
+              <p style={{ color: "var(--gold)", fontSize: "9px" }}>с 1810 года</p>
+            </div>
+          </div>
+          <div
+            className="relative overflow-hidden animate-fade-in opacity-0 delay-200"
+            style={{ border: "1px solid var(--gold-dark)", animationFillMode: "forwards" }}
+          >
+            <img src={REICHSTAG_IMG} alt="Рейхстаг" className="w-full h-full object-cover" />
+            <div className="absolute inset-0" style={{ background: "linear-gradient(to top, rgba(13,17,23,0.85) 0%, transparent 45%)" }} />
+            <div className="absolute bottom-2 left-2 right-2">
+              <p style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "13px", color: "#f0e6c8", fontStyle: "italic" }}>Рейхстаг</p>
+              <p style={{ color: "var(--gold)", fontSize: "9px" }}>Берлин · 1894</p>
+            </div>
+          </div>
+        </div>
+
+        {/* Текстовые факты */}
+        {[
+          { emoji: "🍺", title: "Пивная нация", text: "В Германии варят более 1300 сортов пива. Ежегодный Oktoberfest в Мюнхене собирает свыше 6 миллионов гостей со всего мира и приносит городу около 1,3 млрд евро." },
+          { emoji: "🏰", title: "Страна замков", text: "Германия — абсолютный рекордсмен по числу замков: более 25 000 по всей стране. Только в Баварии их насчитывается свыше 3000, включая знаменитый Нойшванштайн." },
+          { emoji: "🚗", title: "Автомобильная держава", text: "Родина BMW, Mercedes-Benz, Porsche, Volkswagen и Audi. Германия — третий по величине производитель автомобилей в мире после Китая и США." },
+        ].map((f, i) => (
+          <div
+            key={f.title}
+            className="flex gap-3 animate-slide-left opacity-0"
             style={{
               background: "var(--dark-panel)",
               border: "1px solid var(--gold-dark)",
-              padding: "14px 12px",
-              textAlign: "center",
-              animationDelay: `${i * 0.06}s`,
+              padding: "10px 14px",
+              animationDelay: `${0.1 + i * 0.1}s`,
               animationFillMode: "forwards",
-              position: "relative",
-              overflow: "hidden",
             }}
           >
-            <div style={{ fontSize: "22px", marginBottom: "6px" }}>{fact.emoji}</div>
-            <p
-              style={{
-                fontFamily: "'Cormorant Garamond', serif",
-                fontSize: "clamp(18px, 2.5vw, 26px)",
-                fontWeight: 600,
-                color: "var(--gold)",
-                lineHeight: 1,
-              }}
-            >
-              {fact.num}
-            </p>
-            <p style={{ color: "#f0e6c8", fontSize: "10px", marginTop: "3px", fontWeight: 500, textTransform: "uppercase", letterSpacing: "0.5px" }}>
-              {fact.label}
-            </p>
-            <p style={{ color: "#8a7a5a", fontSize: "9px", marginTop: "3px", lineHeight: 1.3 }}>{fact.sub}</p>
-            <div
-              className="absolute bottom-0 left-0 right-0"
-              style={{ height: "2px", background: "linear-gradient(90deg, transparent, var(--gold-dark), transparent)" }}
-            />
+            <span style={{ fontSize: "20px", flexShrink: 0, marginTop: "2px" }}>{f.emoji}</span>
+            <div>
+              <p style={{ color: "var(--gold-light)", fontSize: "12px", fontWeight: 600, marginBottom: "3px" }}>{f.title}</p>
+              <p style={{ color: "#a09070", fontSize: "11px", lineHeight: 1.5 }}>{f.text}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      {/* Правая колонка — факты */}
+      <div className="flex flex-col gap-3 lg:w-72" style={{ flexShrink: 0 }}>
+        {[
+          { emoji: "🏆", title: "Нобелевские лауреаты", text: "Более 110 немецких учёных получили Нобелевскую премию. Среди них Альберт Эйнштейн, Макс Планк, Вернер Гейзенберг и Конрад Лоренц." },
+          { emoji: "🍞", title: "Хлебная столица мира", text: "Германия производит свыше 3500 сортов хлеба и хлебобулочных изделий. Это больше, чем в любой другой стране. В 2014 году немецкая культура хлебопечения внесена в список ЮНЕСКО." },
+          { emoji: "🌲", title: "Зелёная страна", text: "Треть территории Германии покрыта лесами — более 11 млн гектаров. Самый известный из них — Шварцвальд (Чёрный лес) на юго-западе страны, давший название торту «Чёрный лес»." },
+          { emoji: "📚", title: "Родина книгопечатания", text: "Иоганн Гутенберг изобрёл книгопечатание в Майнце около 1450 года. Это изменило историю человечества: впервые книги стали доступны не только монахам и аристократии." },
+          { emoji: "🎵", title: "Музыкальная слава", text: "Германия подарила миру Баха, Бетховена, Брамса, Вагнера и Шумана. Берлинская филармония считается одним из лучших оркестров планеты." },
+        ].map((f, i) => (
+          <div
+            key={f.title}
+            className="flex gap-3 animate-slide-right opacity-0"
+            style={{
+              background: "var(--dark-panel)",
+              border: "1px solid var(--gold-dark)",
+              padding: "10px 14px",
+              animationDelay: `${i * 0.08}s`,
+              animationFillMode: "forwards",
+            }}
+          >
+            <span style={{ fontSize: "18px", flexShrink: 0, marginTop: "2px" }}>{f.emoji}</span>
+            <div>
+              <p style={{ color: "var(--gold-light)", fontSize: "11px", fontWeight: 600, marginBottom: "2px" }}>{f.title}</p>
+              <p style={{ color: "#8a7a5a", fontSize: "10px", lineHeight: 1.45 }}>{f.text}</p>
+            </div>
           </div>
         ))}
       </div>
@@ -614,52 +634,76 @@ const HeritageSlide = () => (
     >
       Объекты ЮНЕСКО
     </h2>
-    <div className="gold-line w-48 mt-2 mb-4" />
+    <div className="gold-line w-48 mt-2 mb-3" />
 
-    <div className="flex flex-col lg:flex-row gap-4 flex-1">
-      {/* Фото + бейдж */}
+    <div className="flex gap-4 flex-1">
+      {/* Левая — фото + счётчик */}
       <div className="flex flex-col gap-3 lg:w-64" style={{ flexShrink: 0 }}>
+        {/* 3 фото стопкой */}
         <div
           className="relative overflow-hidden animate-fade-in opacity-0"
-          style={{ border: "1px solid var(--gold-dark)", flex: 1, minHeight: "180px", animationFillMode: "forwards" }}
+          style={{ border: "1px solid var(--gold-dark)", height: "130px", animationFillMode: "forwards" }}
         >
           <img src={COLOGNE_IMG} alt="Кёльнский собор" className="w-full h-full object-cover" />
-          <div className="absolute inset-0" style={{ background: "linear-gradient(to top, rgba(13,17,23,0.9) 0%, transparent 50%)" }} />
-          <div className="absolute bottom-3 left-3 right-3">
-            <p style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "17px", color: "#f0e6c8", fontStyle: "italic" }}>
-              Кёльнский собор
-            </p>
-            <p style={{ color: "var(--gold)", fontSize: "10px" }}>ЮНЕСКО · с 1248 года</p>
+          <div className="absolute inset-0" style={{ background: "linear-gradient(to top, rgba(13,17,23,0.88) 0%, transparent 45%)" }} />
+          <div className="absolute bottom-2 left-3">
+            <p style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "14px", color: "#f0e6c8", fontStyle: "italic" }}>Кёльнский собор</p>
+            <p style={{ color: "var(--gold)", fontSize: "9px" }}>ЮНЕСКО 1996 · с 1248 г.</p>
           </div>
         </div>
         <div
-          className="animate-slide-in opacity-0 delay-200"
+          className="relative overflow-hidden animate-fade-in opacity-0 delay-100"
+          style={{ border: "1px solid var(--gold-dark)", height: "120px", animationFillMode: "forwards" }}
+        >
+          <img src={SANSSOUCI_IMG} alt="Сансуси" className="w-full h-full object-cover" />
+          <div className="absolute inset-0" style={{ background: "linear-gradient(to top, rgba(13,17,23,0.88) 0%, transparent 45%)" }} />
+          <div className="absolute bottom-2 left-3">
+            <p style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "14px", color: "#f0e6c8", fontStyle: "italic" }}>Дворец Сансуси</p>
+            <p style={{ color: "var(--gold)", fontSize: "9px" }}>ЮНЕСКО 1990 · Потсдам</p>
+          </div>
+        </div>
+        <div
+          className="relative overflow-hidden animate-fade-in opacity-0 delay-200"
+          style={{ border: "1px solid var(--gold-dark)", height: "110px", animationFillMode: "forwards" }}
+        >
+          <img src={RHINE_IMG} alt="Долина Рейна" className="w-full h-full object-cover" />
+          <div className="absolute inset-0" style={{ background: "linear-gradient(to top, rgba(13,17,23,0.88) 0%, transparent 45%)" }} />
+          <div className="absolute bottom-2 left-3">
+            <p style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "14px", color: "#f0e6c8", fontStyle: "italic" }}>Долина Рейна</p>
+            <p style={{ color: "var(--gold)", fontSize: "9px" }}>ЮНЕСКО 2002 · 65 км</p>
+          </div>
+        </div>
+        <div
+          className="animate-slide-in opacity-0 delay-300"
           style={{
             background: "rgba(201,168,76,0.08)",
             border: "1px solid var(--gold)",
-            padding: "14px",
+            padding: "10px",
             textAlign: "center",
             animationFillMode: "forwards",
           }}
         >
-          <p style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "38px", fontWeight: 600, color: "var(--gold)", lineHeight: 1 }}>31</p>
-          <p style={{ color: "#f0e6c8", fontSize: "11px", marginTop: "4px", letterSpacing: "1px", textTransform: "uppercase" }}>объект ЮНЕСКО</p>
-          <p style={{ color: "#8a7a5a", fontSize: "10px", marginTop: "4px" }}>Германия в топ-5 стран мира</p>
+          <p style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "34px", fontWeight: 600, color: "var(--gold)", lineHeight: 1 }}>31</p>
+          <p style={{ color: "#f0e6c8", fontSize: "10px", marginTop: "3px", letterSpacing: "1px", textTransform: "uppercase" }}>объект ЮНЕСКО</p>
+          <p style={{ color: "#8a7a5a", fontSize: "9px", marginTop: "3px" }}>Топ-5 стран мира</p>
         </div>
       </div>
 
-      {/* Сетка объектов */}
-      <div className="grid grid-cols-2 md:grid-cols-3 gap-2 flex-1 content-start">
+      {/* Правая — расширенная сетка объектов */}
+      <div className="grid grid-cols-2 gap-2 flex-1 content-start">
         {[
-          { emoji: "🏛️", name: "Музейный остров", city: "Берлин", year: "1999", desc: "5 всемирно известных музеев на одном острове" },
-          { emoji: "⛪", name: "Кёльнский собор", city: "Кёльн", year: "1996", desc: "Строился 632 года — с 1248 по 1880 год" },
-          { emoji: "🏰", name: "Дворцы Потсдама", city: "Потсдам", year: "1990", desc: "Сансуси — «Версаль Германии»" },
-          { emoji: "🖼️", name: "Баухаус", city: "Дессау", year: "1996", desc: "Колыбель современного дизайна и архитектуры" },
-          { emoji: "🌿", name: "Вадденское море", city: "Северное море", year: "2009", desc: "Крупнейшая приливно-отливная система в мире" },
-          { emoji: "🏡", name: "Аугсбург", city: "Аугсбург", year: "2019", desc: "Уникальная система водоснабжения XVI века" },
-          { emoji: "⛏️", name: "Рудные горы", city: "Саксония", year: "2019", desc: "Горнодобывающий регион с 800-летней историей" },
-          { emoji: "🌄", name: "Верхняя долина Рейна", city: "Рейн", year: "2002", desc: "65 км живописных виноградников и замков" },
-          { emoji: "🎭", name: "Классический Веймар", city: "Веймар", year: "1998", desc: "Родина Гёте, Шиллера и немецкой классики" },
+          { emoji: "🏛️", name: "Музейный остров", city: "Берлин", year: "1999", desc: "5 всемирно известных музеев: Пергамский, Боде, Alte Nationalgalerie и другие — всё на одном острове в Шпрее" },
+          { emoji: "⛪", name: "Кёльнский собор", city: "Кёльн", year: "1996", desc: "Строился 632 года (1248–1880). Высота башен — 157 м. Один из крупнейших готических соборов в мире" },
+          { emoji: "🏰", name: "Дворцы Потсдама", city: "Потсдам", year: "1990", desc: "Сансуси — летняя резиденция Фридриха Великого, «прусский Версаль» с роскошными садами и фонтанами" },
+          { emoji: "🖼️", name: "Баухаус", city: "Дессау", year: "1996", desc: "Школа дизайна (1919–1933), изменившая мировую архитектуру, моду, графику и промышленный дизайн" },
+          { emoji: "🌊", name: "Вадденское море", city: "Северное море", year: "2009", desc: "Крупнейшая в мире приливно-отливная система. Уникальная экосистема с миллионами перелётных птиц" },
+          { emoji: "🌄", name: "Верхняя долина Рейна", city: "Рейн", year: "2002", desc: "65 км живописных берегов с виноградниками, средневековыми замками и легендой о Лорелее" },
+          { emoji: "🎭", name: "Классический Веймар", city: "Веймар", year: "1998", desc: "Город Гёте и Шиллера. Здесь родилась немецкая классическая литература и философия Просвещения" },
+          { emoji: "⛏️", name: "Рудные горы", city: "Саксония", year: "2019", desc: "Горнодобывающий регион с 800-летней историей, определивший экономику средневековой Европы" },
+          { emoji: "🏡", name: "Водное наследие Аугсбурга", city: "Аугсбург", year: "2019", desc: "Уникальная система управления водными ресурсами XVI–XVII вв.: каналы, насосные станции, фонтаны" },
+          { emoji: "🗿", name: "Шпайерский собор", city: "Шпайер", year: "1981", desc: "Крупнейший романский собор в мире, усыпальница германских королей и императоров XI–XII веков" },
+          { emoji: "🌿", name: "Буковые леса", city: "Германия/Европа", year: "2011", desc: "Девственные буковые леса — живые памятники доисторической Европы, часть трансграничного объекта" },
+          { emoji: "🧱", name: "Аббатство Лорш", city: "Лорш", year: "1991", desc: "Средневековое каролингское аббатство VIII века — один из важнейших памятников раннесредневековой Европы" },
         ].map((item, i) => (
           <div
             key={item.name}
@@ -667,18 +711,18 @@ const HeritageSlide = () => (
             style={{
               background: "var(--dark-panel)",
               border: "1px solid var(--gold-dark)",
-              padding: "12px 10px",
-              animationDelay: `${i * 0.06}s`,
+              padding: "10px",
+              animationDelay: `${i * 0.05}s`,
               animationFillMode: "forwards",
             }}
           >
-            <div style={{ display: "flex", alignItems: "center", gap: "6px", marginBottom: "4px" }}>
-              <span style={{ fontSize: "18px" }}>{item.emoji}</span>
-              <span style={{ color: "#5a4a30", fontSize: "9px", letterSpacing: "1px" }}>ЮНЕСКО {item.year}</span>
+            <div style={{ display: "flex", alignItems: "center", gap: "5px", marginBottom: "3px" }}>
+              <span style={{ fontSize: "15px" }}>{item.emoji}</span>
+              <span style={{ color: "#5a4a30", fontSize: "8px", letterSpacing: "1px" }}>ЮНЕСКО {item.year}</span>
             </div>
             <p style={{ color: "#f0e6c8", fontSize: "11px", fontWeight: 500, lineHeight: 1.2 }}>{item.name}</p>
             <p style={{ color: "var(--gold)", fontSize: "9px", marginTop: "2px" }}>{item.city}</p>
-            <p style={{ color: "#6a5a3a", fontSize: "9px", marginTop: "3px", lineHeight: 1.3 }}>{item.desc}</p>
+            <p style={{ color: "#6a5a3a", fontSize: "9px", marginTop: "3px", lineHeight: 1.35 }}>{item.desc}</p>
           </div>
         ))}
       </div>
