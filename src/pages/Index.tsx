@@ -10,7 +10,6 @@ const SLIDES = [
   "culture",
   "heritage",
   "motivation",
-  "author",
 ];
 
 const SLIDE_LABELS = [
@@ -22,12 +21,13 @@ const SLIDE_LABELS = [
   "Культура",
   "Наследие",
   "Мотивация",
-  "Об авторе",
 ];
 
 const BERLIN_IMG = "https://cdn.poehali.dev/projects/44436a32-4b5b-4d12-99a0-91b96511c899/files/519fa6a6-853e-49ab-80bf-5dad4abfab3b.jpg";
 const NATURE_IMG = "https://cdn.poehali.dev/projects/44436a32-4b5b-4d12-99a0-91b96511c899/files/d9157c98-f87a-4ee5-9673-e5c787e7d927.jpg";
 const CASTLE_IMG = "https://cdn.poehali.dev/projects/44436a32-4b5b-4d12-99a0-91b96511c899/files/4da1df4f-fdea-47b6-b714-e6aa12df1a6e.jpg";
+const COLOGNE_IMG = "https://cdn.poehali.dev/projects/44436a32-4b5b-4d12-99a0-91b96511c899/files/a9224ea3-4a74-4b48-95d9-1a5b58de83f4.jpg";
+const OKTOBERFEST_IMG = "https://cdn.poehali.dev/projects/44436a32-4b5b-4d12-99a0-91b96511c899/files/fa111a17-9267-48ba-a7e8-f9f3cc0b6982.jpg";
 
 const GoldDivider = () => (
   <div className="flex items-center gap-3 my-4">
@@ -418,53 +418,74 @@ const FactsSlide = () => (
     >
       Германия в цифрах
     </h2>
-    <div className="gold-line w-40 mt-2 mb-5" />
+    <div className="gold-line w-40 mt-2 mb-4" />
 
-    <div className="grid grid-cols-2 md:grid-cols-3 gap-4 flex-1">
-      {[
-        { num: "84,4 млн", label: "жителей", sub: "4-я по населению в Европе", emoji: "👥" },
-        { num: "1300+", label: "сортов пива", sub: "Родина Oktoberfest", emoji: "🍺" },
-        { num: "1800+", label: "замков", sub: "Больше, чем в любой стране мира", emoji: "🏰" },
-        { num: "16", label: "федеральных земель", sub: "Федеративная республика", emoji: "🗺️" },
-        { num: "4-я", label: "экономика мира", sub: "ВВП — 4,1 трлн $ (2024)", emoji: "📈" },
-        { num: "31", label: "объект ЮНЕСКО", sub: "Всемирное культурное наследие", emoji: "🏛️" },
-      ].map((fact, i) => (
-        <div
-          key={fact.label}
-          className="animate-scale-in opacity-0"
-          style={{
-            background: "var(--dark-panel)",
-            border: "1px solid var(--gold-dark)",
-            padding: "20px 16px",
-            textAlign: "center",
-            animationDelay: `${i * 0.08}s`,
-            animationFillMode: "forwards",
-            position: "relative",
-            overflow: "hidden",
-          }}
-        >
-          <div style={{ fontSize: "28px", marginBottom: "8px" }}>{fact.emoji}</div>
-          <p
+    <div className="flex flex-col lg:flex-row gap-4 flex-1">
+      {/* Фото */}
+      <div
+        className="relative overflow-hidden animate-fade-in opacity-0 lg:w-72"
+        style={{ border: "1px solid var(--gold-dark)", minHeight: "200px", flexShrink: 0, animationFillMode: "forwards" }}
+      >
+        <img src={OKTOBERFEST_IMG} alt="Oktoberfest" className="w-full h-full object-cover" />
+        <div className="absolute inset-0" style={{ background: "linear-gradient(to top, rgba(13,17,23,0.85) 0%, transparent 50%)" }} />
+        <div className="absolute bottom-3 left-3 right-3">
+          <p style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "18px", color: "#f0e6c8", fontStyle: "italic" }}>
+            Oktoberfest
+          </p>
+          <p style={{ color: "var(--gold)", fontSize: "10px" }}>Мюнхен · с 1810 года</p>
+        </div>
+      </div>
+
+      {/* Цифры */}
+      <div className="grid grid-cols-2 md:grid-cols-3 gap-3 flex-1 content-start">
+        {[
+          { num: "84,4 млн", label: "жителей", sub: "4-я по населению в Европе", emoji: "👥" },
+          { num: "1300+", label: "сортов пива", sub: "Родина Oktoberfest с 1810 г.", emoji: "🍺" },
+          { num: "25 000+", label: "замков", sub: "Больше, чем в любой стране мира", emoji: "🏰" },
+          { num: "16", label: "федеральных земель", sub: "Федеративная республика", emoji: "🗺️" },
+          { num: "4-я", label: "экономика мира", sub: "ВВП — 4,1 трлн $ (2024)", emoji: "📈" },
+          { num: "31", label: "объект ЮНЕСКО", sub: "Всемирное культурное наследие", emoji: "🏛️" },
+          { num: "130+", label: "нобелевских лауреатов", sub: "Больше, чем у любой другой страны", emoji: "🏆" },
+          { num: "3500", label: "сортов хлеба", sub: "Хлебная столица мира", emoji: "🍞" },
+          { num: "1 млрд+", label: "автомобилей произведено", sub: "Родина BMW, Mercedes, Porsche, VW", emoji: "🚗" },
+        ].map((fact, i) => (
+          <div
+            key={fact.label}
+            className="animate-scale-in opacity-0"
             style={{
-              fontFamily: "'Cormorant Garamond', serif",
-              fontSize: "clamp(22px, 3vw, 32px)",
-              fontWeight: 600,
-              color: "var(--gold)",
-              lineHeight: 1,
+              background: "var(--dark-panel)",
+              border: "1px solid var(--gold-dark)",
+              padding: "14px 12px",
+              textAlign: "center",
+              animationDelay: `${i * 0.06}s`,
+              animationFillMode: "forwards",
+              position: "relative",
+              overflow: "hidden",
             }}
           >
-            {fact.num}
-          </p>
-          <p style={{ color: "#f0e6c8", fontSize: "12px", marginTop: "4px", fontWeight: 500, textTransform: "uppercase", letterSpacing: "1px" }}>
-            {fact.label}
-          </p>
-          <p style={{ color: "#8a7a5a", fontSize: "10px", marginTop: "4px" }}>{fact.sub}</p>
-          <div
-            className="absolute bottom-0 left-0 right-0"
-            style={{ height: "2px", background: "linear-gradient(90deg, transparent, var(--gold-dark), transparent)" }}
-          />
-        </div>
-      ))}
+            <div style={{ fontSize: "22px", marginBottom: "6px" }}>{fact.emoji}</div>
+            <p
+              style={{
+                fontFamily: "'Cormorant Garamond', serif",
+                fontSize: "clamp(18px, 2.5vw, 26px)",
+                fontWeight: 600,
+                color: "var(--gold)",
+                lineHeight: 1,
+              }}
+            >
+              {fact.num}
+            </p>
+            <p style={{ color: "#f0e6c8", fontSize: "10px", marginTop: "3px", fontWeight: 500, textTransform: "uppercase", letterSpacing: "0.5px" }}>
+              {fact.label}
+            </p>
+            <p style={{ color: "#8a7a5a", fontSize: "9px", marginTop: "3px", lineHeight: 1.3 }}>{fact.sub}</p>
+            <div
+              className="absolute bottom-0 left-0 right-0"
+              style={{ height: "2px", background: "linear-gradient(90deg, transparent, var(--gold-dark), transparent)" }}
+            />
+          </div>
+        ))}
+      </div>
     </div>
   </SlideWrapper>
 );
@@ -591,52 +612,77 @@ const HeritageSlide = () => (
         color: "#f0e6c8",
       }}
     >
-      Объекты ЮНЕСКО и искусство
+      Объекты ЮНЕСКО
     </h2>
     <div className="gold-line w-48 mt-2 mb-4" />
 
-    <div className="grid grid-cols-2 md:grid-cols-3 gap-3 flex-1">
-      {[
-        { emoji: "🏛️", name: "Музейный остров", city: "Берлин", year: "1999" },
-        { emoji: "⛪", name: "Кёльнский собор", city: "Кёльн", year: "1996" },
-        { emoji: "🏰", name: "Дворцы Потсдама", city: "Потсдам", year: "1990" },
-        { emoji: "🎵", name: "Вагнер-фестиваль", city: "Байройт", year: "1876" },
-        { emoji: "🖼️", name: "Баухаус", city: "Дессау", year: "1996" },
-        { emoji: "🛤️", name: "Романтическая дорога", city: "Бавария", year: "1950" },
-      ].map((item, i) => (
+    <div className="flex flex-col lg:flex-row gap-4 flex-1">
+      {/* Фото + бейдж */}
+      <div className="flex flex-col gap-3 lg:w-64" style={{ flexShrink: 0 }}>
         <div
-          key={item.name}
-          className="animate-scale-in opacity-0 flex flex-col justify-between"
+          className="relative overflow-hidden animate-fade-in opacity-0"
+          style={{ border: "1px solid var(--gold-dark)", flex: 1, minHeight: "180px", animationFillMode: "forwards" }}
+        >
+          <img src={COLOGNE_IMG} alt="Кёльнский собор" className="w-full h-full object-cover" />
+          <div className="absolute inset-0" style={{ background: "linear-gradient(to top, rgba(13,17,23,0.9) 0%, transparent 50%)" }} />
+          <div className="absolute bottom-3 left-3 right-3">
+            <p style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "17px", color: "#f0e6c8", fontStyle: "italic" }}>
+              Кёльнский собор
+            </p>
+            <p style={{ color: "var(--gold)", fontSize: "10px" }}>ЮНЕСКО · с 1248 года</p>
+          </div>
+        </div>
+        <div
+          className="animate-slide-in opacity-0 delay-200"
           style={{
-            background: "var(--dark-panel)",
-            border: "1px solid var(--gold-dark)",
-            padding: "18px 14px",
-            animationDelay: `${i * 0.1}s`,
+            background: "rgba(201,168,76,0.08)",
+            border: "1px solid var(--gold)",
+            padding: "14px",
+            textAlign: "center",
             animationFillMode: "forwards",
           }}
         >
-          <div style={{ fontSize: "36px", marginBottom: "10px" }}>{item.emoji}</div>
-          <div>
-            <p style={{ color: "#f0e6c8", fontSize: "13px", fontWeight: 500, lineHeight: 1.3 }}>{item.name}</p>
-            <p style={{ color: "var(--gold)", fontSize: "10px", marginTop: "4px" }}>{item.city}</p>
-            <p style={{ color: "#5a4a30", fontSize: "9px", letterSpacing: "2px", marginTop: "2px" }}>c {item.year}</p>
-          </div>
+          <p style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "38px", fontWeight: 600, color: "var(--gold)", lineHeight: 1 }}>31</p>
+          <p style={{ color: "#f0e6c8", fontSize: "11px", marginTop: "4px", letterSpacing: "1px", textTransform: "uppercase" }}>объект ЮНЕСКО</p>
+          <p style={{ color: "#8a7a5a", fontSize: "10px", marginTop: "4px" }}>Германия в топ-5 стран мира</p>
         </div>
-      ))}
-    </div>
+      </div>
 
-    <GoldDivider />
-    <p
-      style={{
-        fontFamily: "'Cormorant Garamond', serif",
-        fontStyle: "italic",
-        color: "#8a7a5a",
-        fontSize: "13px",
-        textAlign: "center",
-      }}
-    >
-      31 объект включён в список Всемирного наследия ЮНЕСКО
-    </p>
+      {/* Сетка объектов */}
+      <div className="grid grid-cols-2 md:grid-cols-3 gap-2 flex-1 content-start">
+        {[
+          { emoji: "🏛️", name: "Музейный остров", city: "Берлин", year: "1999", desc: "5 всемирно известных музеев на одном острове" },
+          { emoji: "⛪", name: "Кёльнский собор", city: "Кёльн", year: "1996", desc: "Строился 632 года — с 1248 по 1880 год" },
+          { emoji: "🏰", name: "Дворцы Потсдама", city: "Потсдам", year: "1990", desc: "Сансуси — «Версаль Германии»" },
+          { emoji: "🖼️", name: "Баухаус", city: "Дессау", year: "1996", desc: "Колыбель современного дизайна и архитектуры" },
+          { emoji: "🌿", name: "Вадденское море", city: "Северное море", year: "2009", desc: "Крупнейшая приливно-отливная система в мире" },
+          { emoji: "🏡", name: "Аугсбург", city: "Аугсбург", year: "2019", desc: "Уникальная система водоснабжения XVI века" },
+          { emoji: "⛏️", name: "Рудные горы", city: "Саксония", year: "2019", desc: "Горнодобывающий регион с 800-летней историей" },
+          { emoji: "🌄", name: "Верхняя долина Рейна", city: "Рейн", year: "2002", desc: "65 км живописных виноградников и замков" },
+          { emoji: "🎭", name: "Классический Веймар", city: "Веймар", year: "1998", desc: "Родина Гёте, Шиллера и немецкой классики" },
+        ].map((item, i) => (
+          <div
+            key={item.name}
+            className="animate-scale-in opacity-0"
+            style={{
+              background: "var(--dark-panel)",
+              border: "1px solid var(--gold-dark)",
+              padding: "12px 10px",
+              animationDelay: `${i * 0.06}s`,
+              animationFillMode: "forwards",
+            }}
+          >
+            <div style={{ display: "flex", alignItems: "center", gap: "6px", marginBottom: "4px" }}>
+              <span style={{ fontSize: "18px" }}>{item.emoji}</span>
+              <span style={{ color: "#5a4a30", fontSize: "9px", letterSpacing: "1px" }}>ЮНЕСКО {item.year}</span>
+            </div>
+            <p style={{ color: "#f0e6c8", fontSize: "11px", fontWeight: 500, lineHeight: 1.2 }}>{item.name}</p>
+            <p style={{ color: "var(--gold)", fontSize: "9px", marginTop: "2px" }}>{item.city}</p>
+            <p style={{ color: "#6a5a3a", fontSize: "9px", marginTop: "3px", lineHeight: 1.3 }}>{item.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
   </SlideWrapper>
 );
 
@@ -871,7 +917,6 @@ const SLIDE_COMPONENTS = [
   CultureSlide,
   HeritageSlide,
   MotivationSlide,
-  AuthorSlide,
 ];
 
 export default function Index() {
