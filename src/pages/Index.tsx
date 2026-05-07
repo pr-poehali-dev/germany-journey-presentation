@@ -10,6 +10,7 @@ const SLIDES = [
   "culture",
   "heritage",
   "motivation",
+  "author",
 ];
 
 const SLIDE_LABELS = [
@@ -21,6 +22,7 @@ const SLIDE_LABELS = [
   "Культура",
   "Наследие",
   "Мотивация",
+  "Об авторе",
 ];
 
 const BERLIN_IMG = "https://cdn.poehali.dev/projects/44436a32-4b5b-4d12-99a0-91b96511c899/files/519fa6a6-853e-49ab-80bf-5dad4abfab3b.jpg";
@@ -106,7 +108,7 @@ const TitleSlide = () => (
         animationFillMode: "forwards",
       }}
     >
-      Автор: Иванов Иван · 2026
+      Автор: Хакимова Риана · 2026
     </div>
 
     <div className="absolute bottom-8 left-0 right-0 flex justify-center gap-1 opacity-30">
@@ -639,64 +641,222 @@ const HeritageSlide = () => (
 );
 
 const MotivationSlide = () => (
-  <SlideWrapper className="items-center justify-center corner-decor">
-    <div className="text-center max-w-2xl w-full">
-      <p style={{ color: "var(--gold)", fontSize: "10px", letterSpacing: "5px", textTransform: "uppercase" }}>
-        07 / Почему Германия
-      </p>
-      <h2
-        className="animate-slide-in opacity-0"
-        style={{
-          fontFamily: "'Cormorant Garamond', serif",
-          fontSize: "clamp(32px, 5vw, 56px)",
-          fontWeight: 300,
-          color: "#f0e6c8",
-          lineHeight: 1.1,
-          margin: "12px 0",
-          animationFillMode: "forwards",
-        }}
-      >
-        Германия ждёт вас
-      </h2>
-      <GoldDivider />
+  <SlideWrapper>
+    <p style={{ color: "var(--gold)", fontSize: "10px", letterSpacing: "5px", textTransform: "uppercase" }}>
+      07 / Почему Германия
+    </p>
+    <h2
+      style={{
+        fontFamily: "'Cormorant Garamond', serif",
+        fontSize: "clamp(28px, 4vw, 48px)",
+        fontWeight: 400,
+        color: "#f0e6c8",
+        lineHeight: 1.1,
+      }}
+    >
+      Мотивация выбора
+    </h2>
+    <div className="gold-line w-40 mt-2 mb-4" />
 
-      <div className="grid grid-cols-2 gap-3 my-5 text-left">
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-4 flex-1">
+      <div className="flex flex-col gap-3">
+        <p style={{ color: "var(--gold)", fontSize: "10px", letterSpacing: "3px", textTransform: "uppercase", marginBottom: "2px" }}>
+          Почему я выбрала Германию
+        </p>
         {[
-          { emoji: "🏰", text: "Сказочные замки и средневековые города" },
-          { emoji: "🎨", text: "Мировые музеи и галереи искусства" },
-          { emoji: "🌿", text: "Уникальная природа от гор до морей" },
-          { emoji: "🚂", text: "Отличная транспортная инфраструктура" },
-          { emoji: "🍺", text: "Аутентичная кухня и традиции" },
-          { emoji: "🎓", text: "Богатейшая история и наука" },
+          { emoji: "🏰", title: "История на каждом шагу", text: "Более 25 000 замков и дворцов — каждый город хранит тысячелетнюю историю." },
+          { emoji: "🎵", title: "Родина великих композиторов", text: "Бах, Бетховен, Брамс — всё это Германия. Классическая музыка здесь живёт в каждом городе." },
+          { emoji: "🌲", title: "Сказочная природа", text: "Чёрный лес, Баварские Альпы, Рейнские виноградники — пейзажи как из книги Brothers Grimm." },
+          { emoji: "🎄", title: "Волшебная атмосфера", text: "Рождественские ярмарки — самые знаменитые в мире. Запах глинтвейна и пряников — это Германия." },
+          { emoji: "🧠", title: "Страна изобретателей", text: "Автомобиль, аспирин, MP3, рентген — всё это изобрели немцы. Германия — двигатель прогресса." },
+          { emoji: "🌍", title: "Центр Европы", text: "Из Германии легко добраться до любой точки Европы — идеальная база для путешествий." },
         ].map((item, i) => (
           <div
-            key={i}
-            className="flex items-start gap-2 animate-fade-in opacity-0"
+            key={item.title}
+            className="flex gap-3 animate-slide-left opacity-0"
             style={{
               background: "var(--dark-panel)",
               border: "1px solid var(--gold-dark)",
-              padding: "12px",
-              animationDelay: `${0.1 + i * 0.1}s`,
+              padding: "10px 14px",
+              animationDelay: `${i * 0.08}s`,
               animationFillMode: "forwards",
             }}
           >
-            <span style={{ fontSize: "20px", flexShrink: 0 }}>{item.emoji}</span>
-            <p style={{ color: "#d4c5a0", fontSize: "12px", lineHeight: 1.4 }}>{item.text}</p>
+            <span style={{ fontSize: "22px", flexShrink: 0 }}>{item.emoji}</span>
+            <div>
+              <p style={{ color: "var(--gold-light)", fontSize: "12px", fontWeight: 600, marginBottom: "2px" }}>{item.title}</p>
+              <p style={{ color: "#a09070", fontSize: "11px", lineHeight: 1.4 }}>{item.text}</p>
+            </div>
           </div>
         ))}
       </div>
 
-      <p
-        className="animate-fade-in opacity-0 delay-500"
+      <div className="flex flex-col gap-3">
+        <div
+          className="animate-slide-right opacity-0"
+          style={{
+            background: "var(--dark-panel)",
+            border: "1px solid var(--gold)",
+            padding: "18px",
+            animationFillMode: "forwards",
+          }}
+        >
+          <p style={{ color: "var(--gold)", fontSize: "10px", letterSpacing: "3px", textTransform: "uppercase", marginBottom: "10px" }}>
+            Личное впечатление автора
+          </p>
+          <p
+            style={{
+              fontFamily: "'Cormorant Garamond', serif",
+              fontStyle: "italic",
+              fontSize: "16px",
+              color: "#f0e6c8",
+              lineHeight: 1.7,
+            }}
+          >
+            «Германия привлекла меня сочетанием глубокой истории и современности. Здесь можно утром гулять
+            по средневековому замку, а вечером оказаться в ультрасовременном городе. Это страна контрастов,
+            которые удивительно гармонично уживаются вместе.»
+          </p>
+          <div className="gold-line mt-4" />
+          <p style={{ color: "var(--gold)", fontSize: "11px", marginTop: "8px", letterSpacing: "2px" }}>
+            — Хакимова Риана
+          </p>
+        </div>
+
+        <div
+          className="animate-slide-right opacity-0 delay-200"
+          style={{
+            background: "var(--dark-panel)",
+            border: "1px solid var(--gold-dark)",
+            padding: "14px",
+            animationFillMode: "forwards",
+          }}
+        >
+          <p style={{ color: "var(--gold)", fontSize: "10px", letterSpacing: "3px", textTransform: "uppercase", marginBottom: "10px" }}>
+            10 причин посетить Германию
+          </p>
+          <div className="grid grid-cols-2 gap-2">
+            {[
+              "Замок Нойшванштайн",
+              "Октябрфест в Мюнхене",
+              "Берлинская стена",
+              "Рождественские рынки",
+              "Романтическая дорога",
+              "Кёльнский собор",
+              "Остров Рюген",
+              "Баварская кухня",
+              "Музейный остров",
+              "Саксонская Швейцария",
+            ].map((item, i) => (
+              <div
+                key={item}
+                className="flex items-center gap-2"
+              >
+                <span style={{ color: "var(--gold)", fontSize: "10px", flexShrink: 0 }}>
+                  {String(i + 1).padStart(2, "0")}.
+                </span>
+                <span style={{ color: "#c4b490", fontSize: "10px" }}>{item}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div
+          className="animate-fade-in opacity-0 delay-300"
+          style={{
+            background: "rgba(201,168,76,0.08)",
+            border: "1px solid var(--gold-dark)",
+            padding: "12px 16px",
+            textAlign: "center",
+            animationFillMode: "forwards",
+          }}
+        >
+          <p
+            style={{
+              fontFamily: "'Cormorant Garamond', serif",
+              fontStyle: "italic",
+              fontSize: "15px",
+              color: "var(--gold-light)",
+            }}
+          >
+            «Германия — страна, где история встречается с будущим»
+          </p>
+        </div>
+      </div>
+    </div>
+  </SlideWrapper>
+);
+
+const AuthorSlide = () => (
+  <SlideWrapper className="items-center justify-center corner-decor">
+    <div className="text-center max-w-lg w-full">
+      <p style={{ color: "var(--gold)", fontSize: "10px", letterSpacing: "5px", textTransform: "uppercase" }}>
+        08 / Об авторе
+      </p>
+      <div className="gold-line w-24 mx-auto my-4" />
+
+      <div
+        className="animate-scale-in opacity-0"
         style={{
-          fontFamily: "'Cormorant Garamond', serif",
-          fontStyle: "italic",
-          fontSize: "18px",
-          color: "var(--gold-light)",
+          width: 90,
+          height: 90,
+          borderRadius: "50%",
+          background: "linear-gradient(135deg, var(--gold-dark), var(--gold))",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          margin: "0 auto 16px",
+          fontSize: "40px",
           animationFillMode: "forwards",
         }}
       >
-        «Германия — страна, где история встречается с будущим»
+        👩‍🎓
+      </div>
+
+      <h2
+        className="animate-slide-in opacity-0 delay-100"
+        style={{
+          fontFamily: "'Cormorant Garamond', serif",
+          fontSize: "clamp(28px, 4vw, 42px)",
+          fontWeight: 400,
+          color: "#f0e6c8",
+          animationFillMode: "forwards",
+        }}
+      >
+        Хакимова Риана
+      </h2>
+
+      <GoldDivider />
+
+      <div className="flex flex-col gap-3 text-left mt-2">
+        {[
+          { label: "Что я сделала", text: "Подготовила презентацию о Германии: собрала факты, нашла материалы о природе, культуре и истории страны" },
+          { label: "Разделы презентации", text: "География и карта · Берлин · Природа · Интересные факты · Культура · Наследие ЮНЕСКО · Мотивация" },
+          { label: "Источники", text: "Официальный сайт туризма Германии, UNESCO World Heritage, Encyclopaedia Britannica" },
+          { label: "Год создания", text: "2026 год" },
+        ].map((item, i) => (
+          <div
+            key={item.label}
+            className="animate-fade-in opacity-0"
+            style={{
+              background: "var(--dark-panel)",
+              border: "1px solid var(--gold-dark)",
+              padding: "12px 16px",
+              animationDelay: `${0.2 + i * 0.1}s`,
+              animationFillMode: "forwards",
+            }}
+          >
+            <p style={{ color: "var(--gold)", fontSize: "9px", letterSpacing: "3px", textTransform: "uppercase", marginBottom: "4px" }}>
+              {item.label}
+            </p>
+            <p style={{ color: "#d4c5a0", fontSize: "12px", lineHeight: 1.5 }}>{item.text}</p>
+          </div>
+        ))}
+      </div>
+
+      <div className="gold-line w-full mt-5" />
+      <p style={{ color: "#5a4a30", fontSize: "10px", letterSpacing: "3px", marginTop: "10px", textTransform: "uppercase" }}>
+        Спасибо за внимание · Danke schön
       </p>
     </div>
   </SlideWrapper>
@@ -711,6 +871,7 @@ const SLIDE_COMPONENTS = [
   CultureSlide,
   HeritageSlide,
   MotivationSlide,
+  AuthorSlide,
 ];
 
 export default function Index() {
